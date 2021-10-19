@@ -7,7 +7,7 @@ const select = document.querySelector("#cidades");
 // Selecionar o body
 const body = document.body;
 // Selecionar o titulo principal
-const titulo = document.querySelector("header h1");
+const titulo = document.querySelector("main h1");
 
 // Ativa um item
 function ativarItem(item, classe = "ativo") {
@@ -172,7 +172,7 @@ function fazerRequisicao (url, tituloCidade, valor) {
     })
     .catch((e) => {
         // Erros na busca
-        titulo.innerText = "Clima Brasil";
+        titulo.innerText = "Busque pela temperatura!";
         body.className = "";
         ativarItem(erro);
     })
@@ -182,32 +182,37 @@ function fazerRequisicao (url, tituloCidade, valor) {
     });
 }
 
-// Busca os dados na API
+// Busca os dados na API e preenche o select
 function buscarDados(elemento) {
     const valor = elemento.value;
     
     if (valor !== "padrao") {        
-        const url = `https://goweather.herokuapp.com/weather/${valor}`;
+        const url = `http://localhost:3000/temperaturas/${valor}`;
         const tituloCidade = elemento.querySelector(`option[value="${valor}"]`).innerText;
         
         fazerRequisicao(url, tituloCidade, valor);
     } else {
         desativarItem(erro);
         desativarItens(cards);
-        titulo.innerText = "Clima Brasil";
+        titulo.innerText = "Busque pela temperatura!";
         body.className = "";
     }
 }
 
-// Regasta o útlimo valor selecionado
-window.addEventListener("load", () => {
-    const dados = resgastarDados();
+async function iniciar() {
+    await carregarOpcoes(select);
 
-    const opcao = select.querySelector(`option[value="${dados["valor"]}"]`);
+    // Isso aqui é pra resgastar os dados do localStorage
+    const dadosLocal = resgastarDados();
+    const opcao = select.querySelector(`option[value="${dadosLocal["valor"]}"]`);
+
     opcao.setAttribute("selected", "");
 
-    fazerRequisicao(dados["url"], dados["cidade"], dados["valor"]);
-});
+    fazerRequisicao(dadosLocal["url"], dadosLocal["cidade"], dadosLocal["valor"]);
+}
+
+// Regasta o útlimo valor selecionado e preenche o select
+window.addEventListener("load", iniciar);
 
 // Adicionar o evento para manipular dados
 select.addEventListener("change", () => buscarDados(select));

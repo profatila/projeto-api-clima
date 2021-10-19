@@ -4,55 +4,43 @@
     <meta charset="UTF-8">
     <meta name="description" content="API climática para consulta da temperatura nas principais capitais brasileiras: São Paulo, Rio de Janeiro, Curitiba...">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Clima Brasil">
+    <meta property="og:title" content="Clima Brasil - Buscar">
     <meta property="og:description" content="API climática para consulta da temperatura nas principais capitais brasileiras: São Paulo, Rio de Janeiro, Curitiba...">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
     <!-- JavaScript -->
-    <script src="js/script.js" defer></script>
+    <script src="js/geral.js" defer></script>
+    <script src="js/buscar.js" defer></script>
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico">
-    <title>Clima Brasil</title>
+    <title>Clima Brasil - Buscar</title>
 </head>
 <body>
     <header class="p-2 cor-fundo sombra">
-        <h1 class="h1 text-white text-center">Clima Brasil</h1>
+        <div class="container">
+            <div class="row">
+                <h1 class=" col-md-6 col-12"><a href="index.html" class="h1 text-white">Clima Brasil</a></h1>
+                <nav class="menu col-md-6 col-12">
+                    <ul>
+                        <li><a href="index.html" class="text-white ativo">Buscar</a></li>
+                        <li><a href="deletar.html" class="text-white">Deletar</a></li>
+                        <li><a href="adicionar.html" class="text-white">Adicionar</a></li>
+                        <li><a href="atualizar.html" class="text-white">Atualizar</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </header>
     
-    <main class="container mt-5 pt-5">
+    <main class="container my-5">
         <div class="row flex-column align-items-center">
-            <form class="col-sm-6 col-9  mb-5 pb-5">
+            <h1 class="h2 mb-3 col-12 text-center text-white">Busque pela temperatura!</h1>
+            <form class="col-sm-6 col-9  mb-3 pb-5">
                 <div class="from-group">
                     <select class="form-control sombra" name="cidades" id="cidades">
-                        <option value="padrao">Selecione o estado...</option>
-                        <option value="aracaju">Aracaju</option>
-                        <option value="belem">Belém</option>
-                        <option value="belo horizonte">Belo Horizonte</option>
-                        <option value="boa vista">Boa Vista</option>
-                        <option value="brasilia">Brasília</option>
-                        <option value="campo grande">Campo Grande</option>
-                        <option value="cuiaba">Cuiabá</option>
-                        <option value="curitiba">Curitiba</option>
-                        <option value="florianopolis">Florianópolis</option>
-                        <option value="fortaleza">Fortaleza</option>
-                        <option value="goiania">Goiânia</option>
-                        <option value="joao pessoa">João Pessoa</option>
-                        <option value="macapa">Macapá</option>
-                        <option value="maceio">Maceió</option>
-                        <option value="manaus">Manaus</option>
-                        <option value="natal">Natal</option>
-                        <option value="palmas">Palmas</option>
-                        <option value="porto alegre">Porto Alegre</option>
-                        <option value="porto velho">Porto Velho</option>
-                        <option value="recife">Recife</option>
-                        <option value="rio de janeiro">Rio de Janeiro</option>
-                        <option value="sao luis">São Luís</option>
-                        <option value="sao paulo">São Paulo</option>
-                        <option value="salvador">Salvador</option>
-                        <option value="teresina">Teresina</option>
-                        <option value="vitoria">Vitória</option>
+                        <option value="padrao">Selecione a cidade...</option>
                     </select>
                 </div>
             </form>
@@ -131,7 +119,7 @@
                     <a href="https://github.com/gkslima" class="text-white" target="_blank">gkslima</a>
                 </li>
                 <li class="col-lg-4 col-6 py-2">
-                    <span class="contribuidores">Mauricio C.</span>
+                    <span class="contribuidores">Mauricio Calassara</span>
                     <a href="https://github.com/mauricio383" class="text-white" target="_blank">mauricio383</a>
                 </li>
                 <li class="col-lg-4 col-6 py-2">
